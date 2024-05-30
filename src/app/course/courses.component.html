@@ -1,0 +1,27 @@
+<!--
+    <div>
+    {{courses|json}}
+</div>
+-->
+<div class="container-fluid" style="margin: 5px;">
+    <h3>COURSE LISTING</h3>
+    <div class="row row-cols-3">
+        <div *ngFor="let course of courses" class="col rounded-4" style="border:solid grey; margin: 5px; padding:10px; width: 32%;">
+            <div >
+                <h4><b>{{course.name}}</b></h4>
+                <p><b>{{course.duration}}</b></p>
+            </div>
+            <hr>
+            <div>
+                <h6><b>{{course.description}}</b></h6>
+            </div>
+            <hr>
+            <div class="row row-col-3">
+                <button type="button" class="col btn btn-info" [routerLink]="['/course', course.courseId]" style="width:25%; margin-left: 10px; margin-right: 10px;"><b>Edit</b></button>
+                <button type="button" class="col btn btn-danger" (click)="deleteCourse(course.courseId !== undefined ? +course.courseId : -1)" style="width:25%"><b>Delete</b></button>
+                <div class="col" style="width:50%"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
